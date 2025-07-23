@@ -1,0 +1,30 @@
+@import "tailwindcss";
+@config "../tailwind.config.js";
+/* index.css */
+
+:root {
+  --grid-line-color: rgba(229, 231, 235, 0.5); /* gray-200 with 50% opacity */
+}
+
+.dark {
+  --grid-line-color: rgba(55, 65, 81, 0.5); /* gray-700 with 50% opacity */
+}
+
+.blueprint-grid {
+  background-image: linear-gradient(var(--grid-line-color) 1px, transparent 1px), linear-gradient(90deg, var(--grid-line-color) 1px, transparent 1px);
+  background-size: 150px 150px;
+}
+
+html {
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  line-height: 1.5rem;
+  scroll-behavior: smooth;
+  scroll-padding-top: 100px; /* Adjust this value to match your header's height */
+}
+
+/* h1 {
+    @apply text-4xl font-bold leading-tight;
+  }   */

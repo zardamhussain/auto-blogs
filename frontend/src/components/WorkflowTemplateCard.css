@@ -1,0 +1,70 @@
+.template-card {
+    position: relative;
+    background-color: #1E1E1E; /* Panel Background */
+    border-radius: 8px;
+    border: 1px solid #333333; /* Subtle Borders */
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+.template-card:hover {
+    transform: translateY(-2px);
+    border-color: #444444;
+}
+
+.template-card-preview {
+    height: 180px;
+    background-color: #121212; /* Primary Background */
+}
+
+.template-card-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #EAEAEA; /* Primary Text */
+    border-top: 1px solid #333333;
+}
+
+.template-card.new-template {
+    background-color: #333;
+    color: #EAEAEA;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px dashed #555;
+}
+
+.template-card.new-template:hover {
+    background-color: #3a3a3a;
+    border-color: #666;
+}
+
+.new-template-icon {
+    font-size: 3rem;
+    line-height: 1;
+    color: #a0a0a0;
+}
+
+.new-template-text {
+    font-size: 1rem;
+    font-weight: 500;
+    margin-top: 0.5rem;
+    color: #EAEAEA;
+}
+
+.template-card-delete-btn {
+    border: none;
+    border-radius: 50%;
+    cursor: pointer;
+    width: 28px;
+    height: 28px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s, color 0.2s;
+}

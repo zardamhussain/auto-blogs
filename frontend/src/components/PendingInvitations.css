@@ -1,0 +1,73 @@
+.pending-invitations-container {
+    background-color: #2D2D2D; /* Dark background */
+    border: 1px solid #444; /* Lighter border for contrast */
+    border-radius: 8px;
+    padding: 16px;
+    margin-bottom: 24px;
+}
+
+.pending-invitations-container h2 {
+    margin-top: 0;
+    color: #E0E0E0; /* Light text color */
+    font-size: 1.2em;
+    border-bottom: 1px solid #444;
+    padding-bottom: 8px;
+}
+
+.invitations-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.invitation-card {
+    background-color: #333; /* Slightly lighter than the container */
+    border: 1px solid #555;
+    border-radius: 6px;
+    padding: 12px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.invitation-details p {
+    margin: 0;
+    color: #ccc; /* Lighter grey for text */
+}
+
+.invitation-details strong {
+    color: #fff; /* White for emphasis */
+}
+
+.invitation-actions {
+    display: flex;
+    gap: 8px;
+}
+
+.invitation-actions .accept-btn,
+.invitation-actions .reject-btn {
+    padding: 8px 12px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background-color 0.2s ease;
+}
+
+.invitation-actions .accept-btn {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.invitation-actions .accept-btn:hover {
+    background-color: #66BB6A;
+}
+
+.invitation-actions .reject-btn {
+    background-color: #f44336;
+    color: white;
+}
+
+.invitation-actions .reject-btn:hover {
+    background-color: #E57373;
+} 

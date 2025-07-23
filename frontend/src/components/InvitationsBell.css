@@ -1,0 +1,110 @@
+.invitations-bell-container {
+    position: relative;
+    display: inline-block;
+}
+
+.bell-icon {
+    background: none;
+    border: none;
+    color: #fff;
+    cursor: pointer;
+    font-size: 24px;
+    position: relative;
+    padding: 0;
+}
+
+.notification-badge {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    background-color: #E53935; /* A vibrant red */
+    color: white;
+    border-radius: 50%;
+    padding: 2px 6px;
+    font-size: 12px;
+    font-weight: bold;
+    border: 2px solid #2D2D2D; /* Same as dropdown background for a seamless look */
+}
+
+.invitations-dropdown {
+    position: absolute;
+    top: 100%;
+    right: 0;
+    background-color: #2D2D2D; /* Dark background */
+    border: 1px solid #444; /* Slightly lighter border */
+    border-radius: 8px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    width: 300px;
+    z-index: 1000;
+    padding: 15px;
+    color: #E0E0E0; /* Light text color for contrast */
+}
+
+.invitation-item {
+    padding: 10px 0;
+    border-bottom: 1px solid #444;
+}
+
+.invitation-item:last-child {
+    border-bottom: none;
+}
+
+.invitation-item p {
+    margin: 0 0 10px 0;
+    font-size: 14px;
+}
+
+.invitation-item strong {
+    color: #fff;
+    font-weight: 600;
+}
+
+.invitation-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.accept-btn, .decline-btn {
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: none;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background-color 0.2s;
+}
+
+.accept-btn {
+    background-color: #4CAF50; /* Green */
+    color: white;
+}
+
+.accept-btn:hover {
+    background-color: #66BB6A;
+}
+
+.decline-btn {
+    background-color: #f44336; /* Red */
+    color: white;
+}
+
+.decline-btn:hover {
+    background-color: #E57373;
+}
+
+.close-btn {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background: none;
+    border: none;
+    color: #aaa;
+    font-size: 24px;
+    cursor: pointer;
+    padding: 0;
+    line-height: 1;
+}
+
+.close-btn:hover {
+    color: #fff;
+} 

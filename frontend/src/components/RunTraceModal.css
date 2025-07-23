@@ -1,0 +1,233 @@
+/* RunTraceModal.css - Themed and scrollable */
+.rt-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start; /* Align to top to allow scrolling */
+  z-index: 2000; /* High z-index */
+  backdrop-filter: blur(2px);
+  overflow-y: auto; /* Enable vertical scrolling */
+  padding: 5vh 0; /* Add some padding */
+}
+
+.rt-modal-content {
+  background-color: #121212;
+  color: #d1d5db;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+  width: 90vw;
+  max-width: 1400px; /* Allow it to be wider */
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #2d2d2d;
+}
+
+.rt-modal-header {
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid #2d2d2d;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.rt-modal-header h3 {
+  margin: 0;
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: #f5f5f5;
+}
+
+.rt-close-btn {
+  background: transparent;
+  border: 1px solid #444;
+  color: #aaa;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  cursor: pointer;
+}
+.rt-close-btn:hover {
+  color: #fff;
+  background-color: #3d3d3d;
+}
+
+.rt-modal-body {
+  display: flex;
+  flex-direction: column;
+  padding: 0;
+}
+
+.rt-top-pane {
+  height: 45vh; /* Use vh for viewport-relative height */
+  min-height: 300px;
+  border-bottom: 2px solid #2d2d2d;
+  background-color: #1a1a1a;
+  position: relative;
+}
+
+.rt-bottom-pane-table {
+  /* Let it take remaining space, but allow it to grow */
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+.rt-table-container {
+  overflow-x: auto;
+  border-top: 1px solid #2d2d2d;
+}
+
+.rt-history-table {
+  width: 100%;
+  border-collapse: collapse;
+  color: #d0d0d0;
+}
+
+.rt-history-table th,
+.rt-history-table td {
+  padding: 14px 18px;
+  text-align: left;
+  border-bottom: 1px solid #2d2d2d;
+  white-space: nowrap;
+}
+
+.rt-history-table th {
+  background-color: #121212;
+  font-weight: 600;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #ffffff;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+}
+
+.rt-history-table tr:hover {
+  background-color: #212121;
+}
+
+.rt-expansion-row > td {
+  padding: 0;
+  background-color: #1a1a1a;
+  border-top: 2px solid #1b1c1c;
+}
+
+/* Deeper styling for the JSON/Markdown viewer inside the expansion */
+.rt-expansion-row .nh-expanded-view {
+  padding: 1rem;
+  max-height: 400px;
+  overflow: auto;
+  background-color: #121212; /* Match modal background */
+}
+.rt-expansion-row .nh-expanded-view,
+.rt-expansion-row .nh-expanded-view .json-view,
+.rt-expansion-row .nh-expanded-view .json-view * {
+    color: #d0d0d0; /* Ensure text is light */
+}
+.rt-expansion-row .nh-expanded-view .json-view .jse-key {
+    color: #64b5f6 !important; /* Light blue for keys */
+}
+
+.rt-expansion-row .nh-sidebar {
+    background-color: #1f1f1f;
+    border-right: 1px solid #2d2d2d;
+}
+.rt-expansion-row .nh-sidebar-btn {
+    color: #a0a0a0;
+    background-color: #121212;
+}
+.rt-expansion-row .nh-sidebar-btn.active {
+    background-color: #1c1d1e;
+    color: white;
+}
+.rt-expansion-row .nh-sidebar-btn:hover{
+    background-color: #1c1d1e;
+    border-color: #3e3d3d;
+}
+.rt-expansion-row .nh-tabs {
+    border-bottom: 1px solid #2d2d2d;
+}
+.rt-expansion-row .nh-tab-btn {
+    color: #a0a0a0;
+}
+.rt-expansion-row .nh-tab-btn.active {
+    color: white;
+}
+.rt-expansion-row .nh-markdown-preview {
+    color: #d0d0d0;
+    background-color: #121212;
+}
+
+
+.rt-status {
+  padding: 4px 10px;
+  border-radius: 12px;
+  font-weight: bold;
+  text-transform: capitalize;
+}
+
+.rt-status.success { 
+  color: #81c784; 
+  border: 1px solid #388e3c; 
+  background-color: rgba(129, 199, 132, 0.1);
+}
+.rt-status.error { 
+  color: #e57373; 
+  border: 1px solid #d32f2f; 
+  background-color: rgba(229, 115, 115, 0.1);
+}
+.rt-status.running { 
+  color: #64b5f6; 
+  border: 1px solid #1976d2;
+  background-color: rgba(100, 181, 246, 0.1);
+}
+
+.rt-view-btn {
+  background-color: #2d2d2d;
+  border: 1px solid #444;
+  color: #e0e0e0;
+  padding: 6px 12px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+.rt-view-btn:hover {
+  background-color: #3d3d3d;
+  border-color: #555;
+}
+
+.rt-view-btn.error {
+    background-color: #a13030;
+    border-color: #c53030;
+}
+.rt-view-btn.error:hover {
+    background-color: #c53030;
+}
+
+.rt-loading, .rt-error {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  font-size: 1.1rem;
+  color: #9ca3af;
+}
+
+.rt-error {
+  color: #fca5a5;
+}
+
+/* Ensure react-flow attribution is visible */
+.react-flow__attribution {
+  background: rgba(255, 255, 255, 0.5) !important;
+} 

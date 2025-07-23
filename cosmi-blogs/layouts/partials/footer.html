@@ -1,0 +1,70 @@
+<div class="footer">
+
+  <div class=" footer-content">
+
+    <div class="space-y-6 mb-4">
+
+      <div class="w-full  flex flex-col space-y-4 ">
+
+        <a class="flex items-center group" href="{{ .Site.BaseURL }}">
+
+          <div class="cosmi-signature-footer">
+            <h1><a href="{{ .Site.BaseURL }}">
+                <img src="/images/cosmi_signature.png" alt="this is cosmi logo">
+              </a></h1>
+          </div>
+        </a>
+
+        <p class="font-semibold">
+          Discover Your Skin's Potential with Cósmi.<br>Revolutionizing Skincare with AI Technology.
+        </p>
+
+      </div>
+      <div class="self-center flex flex-col w-full md:w-2/5">
+
+        {{ partial "content/social-media.html" . }}
+
+      </div>
+
+      <!-- <div class="my-8">
+        <ul class="flex items-center space-x-4">
+          {{ range .Site.Menus.main }}
+          <li><a class="decoration-auto hover:underline font-semibold" href="{{ .URL }}">{{ .Name }}</a></li>
+          {{ end }}
+        </ul>
+
+
+      </div> -->
+    </div>
+
+
+    <div class="flex flex-col link-section">
+      <h2>Links</h2>
+      <a href="/" onclick="triggerGAEvent('footer-home-link', 'Click')">Home</a>
+      <a href="/about" onclick="triggerGAEvent('footer-about-link', 'Click')">About</a>
+      <a href="/tags" onclick="triggerGAEvent('footer-tags-link', 'Click')">Tags</a>
+    </div>
+    <div class="flex flex-col link-section">
+      <h2>Ventures</h2>
+      <a href="https://odineye.xyz/?lang=en_us" onclick="triggerGAEvent('footer-external-link-odineye', 'Click')">Odineye</a>
+      <a href="https://www.photogptai.com/" onclick="triggerGAEvent('footer-external-link-photogptai', 'Click')">Photogptai</a>
+      <a href="https://www.theaicompany.xyz/" onclick="triggerGAEvent('footer-external-link-theaicompany', 'click')">The AI Company</a>
+    </div>
+    <div class="flex flex-col link-section">
+      <h2>Legal</h2>
+      <a href="https://www.cosmi.skin/terms-and-conditions">Terms of Service</a>
+      <a href="https://www.cosmi.skin/privacy-policy">Privacy Policy</a>
+      <a href="https://www.cosmi.skin/cancellation-refund">Cancellation / Refund</a>
+    </div>
+
+
+  </div>
+
+
+  <div class="border-t pt-4 text-center">
+
+    <p class="text-md">Copyright © {{ now.Year }}. The AI Company LLC. All rights reserved.. </p>
+
+  </div>
+
+</div>

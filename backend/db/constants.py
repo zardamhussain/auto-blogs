@@ -1,0 +1,1 @@
+gemini_model_type = "gemini-2.5-flash"

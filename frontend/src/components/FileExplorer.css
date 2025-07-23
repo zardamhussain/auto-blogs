@@ -1,0 +1,110 @@
+.file-explorer-container {
+    display: flex;
+    height: calc(100vh - 80px); /* Adjust height based on header/footer if any */
+    background-color: var(--primary-background);
+    color: var(--primary-text);
+    font-family: 'Inter', sans-serif;
+    overflow: hidden; /* Prevent overflow issues */
+}
+
+.file-tree-panel {
+    width: 300px; /* Fixed width for the file tree panel */
+    background-color: var(--panel-background);
+    border-right: 1px solid var(--subtle-borders);
+    padding: 1.5rem;
+    overflow-y: auto;
+    box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+    flex-shrink: 0;
+}
+
+.file-tree-panel h3,
+.file-content-panel h3 {
+    font-size: 1.25rem;
+    color: var(--accent-text);
+    margin-bottom: 1rem;
+    font-weight: 600;
+}
+
+.file-tree ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.file-tree li {
+    margin-bottom: 0.2rem;
+}
+
+.tree-item {
+    display: flex;
+    align-items: center;
+    padding: 0.4rem 0.6rem;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.tree-item:hover {
+    background-color: var(--subtle-borders);
+    color: var(--accent-text);
+}
+
+.file-item .file-icon {
+    color: var(--secondary-text);
+}
+
+.folder-item .file-icon {
+    color: var(--primary-accent);
+}
+
+.tree-item.file-item {
+    padding-left: 1.5rem; /* Indent files within folders */
+}
+
+.file-icon {
+    margin-right: 0.5rem;
+    font-size: 1rem;
+}
+
+.folder-children {
+    margin-left: 1rem;
+    border-left: 1px solid var(--subtle-borders);
+    padding-left: 0.5rem;
+}
+
+.file-content-panel {
+    flex-grow: 1;
+    background-color: var(--primary-background);
+    padding: 1.5rem;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.file-content-panel h3 {
+    border-bottom: 1px solid var(--subtle-borders);
+    padding-bottom: 0.8rem;
+    margin-bottom: 1.5rem;
+}
+
+.file-content-display {
+    background-color: var(--panel-background);
+    border: 1px solid var(--subtle-borders);
+    border-radius: 6px;
+    padding: 1rem;
+    white-space: pre-wrap;
+    word-break: break-all;
+    flex-grow: 1;
+    overflow: auto;
+    font-family: 'monospace', monospace;
+    font-size: 0.95rem;
+    line-height: 1.5;
+    color: var(--primary-text);
+}
+
+.no-file-selected {
+    text-align: center;
+    color: var(--secondary-text);
+    font-size: 1.1rem;
+    padding-top: 2rem;
+} 

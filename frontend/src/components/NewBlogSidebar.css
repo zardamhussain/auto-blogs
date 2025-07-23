@@ -1,0 +1,321 @@
+/* Styles for NewBlogModal, aligned with DESIGN_GUIDELINES.md */
+.new-blog-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    transition: opacity 0.3s ease-out;
+}
+
+.new-blog-modal-overlay.fade-out {
+    opacity: 0;
+}
+
+.new-blog-modal-content {
+    background-color: #1E1E1E; /* Panel Background */
+    border: 1px solid #333333; /* Subtle Borders */
+    color: #EAEAEA; /* Primary Text */
+    width: 90%;
+    max-width: 600px; /* A good width for a form modal */
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    font-family: 'Inter', sans-serif;
+    transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+}
+
+.new-blog-modal-content.fade-out {
+    opacity: 0;
+    transform: scale(0.95);
+}
+
+.new-blog-modal .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    border-bottom: 1px solid #333333;
+}
+
+.new-blog-modal .modal-header h2 {
+    margin: 0;
+    color: #FFFFFF; /* Accent Text */
+    font-size: 1.5rem; /* Slightly smaller than page headers */
+}
+
+.new-blog-modal .close-button {
+    background: none;
+    border: none;
+    font-size: 2rem;
+    cursor: pointer;
+    color: #a0a0a0; /* Secondary Text */
+    line-height: 1;
+}
+
+.new-blog-modal .close-button:hover {
+    color: #FFFFFF; /* Accent Text */
+}
+
+.new-blog-modal .form-group {
+    padding: 1.5rem; /* Standard padding */
+    margin-bottom: 0;
+}
+
+.new-blog-modal .form-group label {
+    display: block;
+    font-size: 1.1rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    color: #EAEAEA; /* Primary Text */
+}
+
+.new-blog-modal .form-group p {
+    font-size: 0.9rem;
+    color: #a0a0a0; /* Secondary Text */
+    margin-bottom: 1rem;
+}
+
+.new-blog-modal textarea {
+    width: 100%;
+    box-sizing: border-box;
+    background-color: #121212; /* Primary Background */
+    color: #EAEAEA; /* Primary Text */
+    border: 1px solid #333333; /* Subtle Borders */
+    border-radius: 8px;
+    padding: 0.75rem 1rem;
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    resize: vertical;
+    min-height: 120px;
+}
+
+.new-blog-modal textarea::placeholder {
+    color: #a0a0a0; /* Secondary Text */
+}
+
+.new-blog-modal textarea:focus {
+    outline: none;
+    border-color: #FFFFFF; /* White accent on focus */
+}
+
+.new-blog-modal .modal-footer {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.75rem;
+    padding: 1.5rem;
+    border-top: 1px solid #333333;
+}
+
+.new-blog-modal .cancel-btn {
+    background-color: transparent;
+    color: #EAEAEA; /* Primary Text */
+    border: 1px solid #333333; /* Subtle Borders */
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 0.75rem 1.5rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.new-blog-modal .cancel-btn:hover {
+    background-color: #333333;
+}
+
+.new-blog-modal .generate-btn {
+    background-color: #4f46e5; /* Primary Accent */
+    color: #FFFFFF; /* Accent Text */
+    font-weight: 600;
+    font-size: 1rem;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: opacity 0.2s;
+}
+
+.new-blog-modal .generate-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.status-message {
+    flex-grow: 1;
+    font-size: 0.9rem;
+    padding: 0 1rem;
+}
+
+.new-blog-modal .status-message.generating {
+    color: #a0a0a0;
+}
+.new-blog-modal .status-message.success {
+    color: #22c55e;
+}
+.new-blog-modal .status-message.error {
+    color: #ef4444;
+}
+
+.new-blog-sidebar-overlay {
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    z-index: 1000;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.new-blog-sidebar-content {
+    background-color: #1e1e1e;
+    width: 500px;
+    max-width: 100%;
+    height: 100%;
+    box-shadow: -5px 0 15px rgba(0,0,0,0.5);
+    display: flex;
+    flex-direction: column;
+    color: #eaeaea;
+    box-sizing: border-box;
+    overflow: hidden; /* Prevent the whole container from scrolling */
+}
+
+.sidebar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2rem;
+    padding: 2rem 2rem 0 2rem; /* Add padding here */
+    flex-shrink: 0;
+}
+
+.close-button {
+    background: none;
+    border: none;
+    color: #a0a0a0;
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.new-blog-sidebar-content h2 {
+    margin: 0;
+}
+
+.sidebar-form {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1; /* Allow form to take up available space */
+    overflow-y: auto; /* Enable vertical scrolling ONLY for the form */
+    padding: 0 2rem; /* Add horizontal padding */
+}
+
+.new-blog-sidebar-content .form-group {
+    margin-bottom: 1.5rem;
+}
+
+.new-blog-sidebar-content .form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    color: #a0a0a0;
+    font-weight: 500;
+}
+
+.new-blog-sidebar-content .form-group p {
+    font-size: 0.875rem;
+    color: #a0a0a0;
+    margin-top: 0;
+    margin-bottom: 0.75rem;
+}
+
+.new-blog-sidebar-content textarea,
+.new-blog-sidebar-content select {
+    width: 100%;
+    background-color: #121212;
+    color: #EAEAEA;
+    border: 1px solid #333333;
+    border-radius: 6px;
+    padding: 0.75rem 1rem;
+    font-size: 1rem;
+    box-sizing: border-box;
+    font-family: inherit;
+}
+
+.new-blog-sidebar-content textarea {
+    resize: vertical;
+}
+
+.new-blog-sidebar-content .modal-footer {
+    margin-top: auto;
+    padding: 2rem; /* Add padding here */
+    flex-shrink: 0;
+    border-top: 1px solid #333333;
+    background-color: #1e1e1e; /* Match sidebar background */
+}
+
+/* NEW STYLES FOR REDESIGNED FORM */
+
+
+
+.settings-section {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    margin-bottom: 1.5rem;
+}
+
+.settings-section > label {
+    font-weight: 500;
+    color: #eaeaea;
+}
+
+.checkbox-group {
+    display: flex;
+    gap: 1.5rem;
+    align-items: center;
+}
+
+.checkbox-label {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-size: 0.9rem;
+    cursor: pointer;
+}
+
+.language-tags-display {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding-top: 0.5rem;
+    min-height: 24px; /* Prevent layout shift */
+}
+
+.language-tag {
+    display: inline-flex;
+    align-items: center;
+    background-color: #333;
+    color: #eaeaea;
+    padding: 0.25rem 0.75rem;
+    border-radius: 4px;
+    font-size: 0.875rem;
+}
+
+.remove-tag-btn {
+    background: none;
+    border: none;
+    color: #a0a0a0;
+    margin-left: 0.5rem;
+    cursor: pointer;
+    padding: 0;
+    line-height: 1;
+    font-size: 1.2em;
+}
+
+.remove-tag-btn:hover {
+    color: #fff;
+} 

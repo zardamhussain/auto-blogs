@@ -1,0 +1,211 @@
+.confirmation-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(5px);
+}
+
+.confirmation-modal-content {
+    background-color: var(--color-background-light); /* From index.css */
+    padding: 30px 40px;
+    border-radius: 12px;
+    width: 100%;
+    max-width: 450px;
+    text-align: center;
+    position: relative;
+    border: 1px solid var(--color-border);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    animation: fadeInScale 0.3s ease-out;
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.95);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+.modal-icon-container {
+    margin-bottom: 15px;
+}
+
+.danger-icon {
+    color: var(--color-danger);
+    background-color: rgba(220, 53, 69, 0.1);
+    border-radius: 50%;
+    padding: 10px;
+    width: 52px;
+    height: 52px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.info-icon {
+    color: var(--color-primary);
+    background-color: rgba(59, 130, 246, 0.1);
+    border-radius: 50%;
+    padding: 10px;
+    width: 52px;
+    height: 52px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.confirmation-modal-content h2 {
+    color: var(--color-text-primary);
+    font-size: 1.5rem;
+    margin: 0 0 10px 0;
+}
+
+.confirmation-modal-content p {
+    color: var(--color-text-secondary);
+    font-size: 1rem;
+    margin-bottom: 30px;
+    line-height: 1.6;
+}
+
+.modal-button-group {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+}
+
+.modal-btn {
+    padding: 12px 24px;
+    border-radius: 8px;
+    border: none;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s, transform 0.1s;
+}
+
+.modal-btn:hover {
+    transform: translateY(-2px);
+}
+
+.cancel-btn {
+    background-color: var(--color-background-lighter);
+    color: var(--color-text-primary);
+    border: 1px solid var(--color-border);
+}
+
+.cancel-btn:hover {
+    background-color: var(--color-border);
+}
+
+.confirm-danger {
+    background-color: var(--color-danger);
+    color: #fff;
+}
+
+.confirm-danger:hover {
+    background-color: #a42a38;
+}
+
+.confirm-info {
+    background-color: var(--color-primary);
+    color: #fff;
+}
+
+.confirm-info:hover {
+    background-color: #3b82f6; /* A slightly lighter shade of blue */
+}
+
+.modal-close-icon {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    background: transparent;
+    border: none;
+    color: var(--color-text-secondary);
+    cursor: pointer;
+    padding: 5px;
+    border-radius: 50%;
+    transition: background-color 0.2s;
+}
+
+.modal-close-icon:hover {
+    background-color: var(--color-background-lighter);
+    color: var(--color-text-primary);
+}
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.modal-content {
+    background: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    width: 90%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.modal-content h2 {
+    margin-top: 0;
+    font-size: 1.5rem;
+    color: #333;
+}
+
+.modal-content p {
+    margin-bottom: 1.5rem;
+    color: #666;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.modal-actions button {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.cancel-btn {
+    background-color: #f0f0f0;
+    color: #333;
+}
+
+.cancel-btn:hover {
+    background-color: #e0e0e0;
+}
+
+.confirm-btn {
+    background-color: #d9534f;
+    color: white;
+}
+
+.confirm-btn:hover {
+    background-color: #c9302c;
+} 

@@ -1,0 +1,633 @@
+/* ProjectPage.css */
+.project-page {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+.project-header {
+    margin-bottom: 2rem;
+}
+
+.project-header h1 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin: 0 0 0.5rem 0;
+}
+
+.project-header p {
+    font-size: 1rem;
+    color: var(--color-text-secondary);
+}
+
+.project-layout {
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    gap: 1.5rem;
+    flex-grow: 1;
+    height: 0; /* Fix for flex-grow in grid */
+}
+
+.project-list-panel,
+.project-details-panel {
+    background-color: var(--color-bg-panel);
+    border: 1px solid var(--color-border);
+    border-radius: 12px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden; /* To ensure child corners are rounded */
+}
+
+.panel-header {
+    padding: 1rem 1.5rem;
+    border-bottom: 1px solid var(--color-border);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.panel-header h2 {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin: 0;
+}
+
+.panel-header button {
+    background-color: var(--color-btn-primary);
+    color: var(--color-btn-text);
+    border: none;
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.new-project-btn {
+    background-color: var(--color-btn-primary);
+    color: var(--color-btn-text);
+    border: none;
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.new-project-card {
+    background-color: #f0f0f0;
+    color: #333;
+    margin: 0.5rem;
+    padding: 1.5rem 1rem;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    gap: 0.75rem;
+    cursor: pointer;
+    border: 2px dashed #d0d0d0;
+    transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+
+.new-project-card:hover {
+    background-color: #e5e5e5;
+    border-color: #c0c0c0;
+}
+
+.new-project-card span {
+    font-weight: 600;
+}
+
+.project-list {
+    overflow-y: auto;
+    flex-grow: 1;
+    padding: 0.5rem;
+}
+
+.project-list-item {
+    padding: 1rem 1rem;
+    cursor: pointer;
+    border-radius: 8px;
+    margin: 0.25rem;
+    border: 1px solid transparent;
+}
+
+.project-list-item:hover {
+    background-color: var(--color-bg-primary);
+}
+
+.project-list-item.active {
+    background-color: var(--color-accent-glass);
+    border-color: var(--color-accent-text);
+    font-weight: 600;
+}
+
+.project-name {
+    display: block;
+    font-size: 0.95rem;
+}
+
+.project-member-count {
+    font-size: 0.8rem;
+    color: var(--color-text-secondary);
+}
+
+.project-details-panel {
+    padding: 0; /* Remove padding to allow cards to manage it */
+    overflow-y: auto;
+}
+
+.project-details-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.project-details-header h2 {
+    margin: 0;
+    font-size: 1.25rem;
+}
+
+.project-details-header .generate-btn {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.project-details-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding: 1.5rem;
+    overflow-y: auto;
+}
+
+.project-card {
+    background-color: var(--color-bg-card);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    padding: 1.5rem;
+}
+
+.project-card h3 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+    color: var(--color-text-primary);
+}
+
+.card-header-flex {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.invite-btn {
+    background-color: #007bff;
+    color: white;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+}
+
+.project-card p {
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+    margin: 0 0 1.5rem 0;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    color: var(--color-text-secondary);
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    background-color: var(--color-bg-input);
+    color: var(--color-text-primary);
+}
+
+.card-footer {
+    margin-top: 1.5rem;
+    text-align: right;
+}
+
+.save-btn {
+    position: relative;
+    background-color: #ffffff;
+    color: #000000;
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: bold;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 44px; /* Set a minimum height */
+    /* min-height: 42px; Ensure consistent height */
+}
+
+.save-btn:disabled {
+    background-color: #3a3a3a;
+    border-color: #505050;
+    color: #8a8a8a;
+    cursor: not-allowed;
+}
+.loader-in-button {
+    border: 3px solid rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    border-top-color: #ffffff;
+    width: 20px;
+    height: 20px;
+    animation: spin 1s linear infinite;
+}
+.danger-zone {
+    border-color: #552a2a;
+}
+.danger-zone h3 {
+    color: #ff4d4f;
+}
+.setting-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem 0;
+    border-top: 1px solid var(--color-border);
+}
+.delete-btn {
+    background-color: #ff4d4f;
+    color: white;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.project-members-section h3 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin: 1.5rem 0 0.25rem 0;
+}
+.project-members-section p {
+    color: var(--color-text-secondary);
+    font-size: 0.9rem;
+    margin-bottom: 1rem;
+}
+
+.invite-member-form {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1.5rem;
+}
+.invite-member-form input, .invite-member-form select, .invite-member-form button {
+    padding: 0.75rem;
+    border-radius: 6px;
+    border: 1px solid var(--color-border);
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-primary);
+    font-size: 0.9rem;
+}
+.invite-member-form input { flex-grow: 1; }
+.invite-member-form button {
+    background-color: var(--color-btn-primary);
+    color: var(--color-btn-text);
+    cursor: pointer;
+    border: none;
+}
+
+.member-list {
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    max-height: 11rem; /* Adjust height to show ~3 items before scrolling */
+    overflow-y: auto; /* Add vertical scrollbar when content overflows */
+    padding-right: 0.5rem; /* Add some padding to avoid scrollbar overlapping content */
+}
+
+.member-list-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.85rem 0.2rem;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid #4a5568;
+    transition: background-color 0.2s;
+}
+
+.member-list-item:hover {
+    background-color: #2d3748;
+}
+
+.member-list-item:last-child {
+    border-bottom: none;
+}
+
+.member-list-item .user-info {
+    flex-grow: 1;
+    color: var(--color-text-primary);
+}
+
+.role-and-actions {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.role-and-actions select {
+    padding: 0.3rem 0.5rem;
+    border-radius: 4px;
+    border: 1px solid #4a5568;
+    background-color: transparent; /* No background, just border */
+    color: #e2e8f0;
+    margin-right: 10px;
+}
+/* Style the dropdown options */
+.role-and-actions select option {
+    background-color: #4a5568; /* Same dark grey for options */
+    color: #e2e8f0;
+    padding: 0.5rem;
+}
+
+/* Optional: Style for hover state on options */
+.role-and-actions select option:hover {
+    background-color: #4b5563; /* Slightly lighter grey on hover */
+}
+
+.role-and-actions .remove-btn {
+    padding: 0.3rem 0.7rem;
+    border: 1px solid #ef4444;
+    border-radius: 4px;
+    background-color: transparent;
+    color: #ef4444;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.role-and-actions .remove-btn:hover {
+    background-color: #ef4444; /* Fill color on hover */
+    color: white; /* Make text white on hover */
+}
+
+/* Styles for the scrollbar */
+.member-list::-webkit-scrollbar {
+    width: 6px; /* Make scrollbar thinner */
+}
+
+.member-list::-webkit-scrollbar-track {
+    background: #2d3748;
+    border-radius: 3px;
+}
+
+.member-list::-webkit-scrollbar-thumb {
+    background: #4a5568;
+    border-radius: 3px;
+}
+
+.member-list::-webkit-scrollbar-thumb:hover {
+    background: #5a6678;
+}
+
+/* --- Blog Generation Card --- */
+.generate-btn {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: 500;
+}
+
+.generate-btn:disabled {
+    background-color: #a0cfff;
+    cursor: not-allowed;
+}
+
+.generation-status {
+    margin-top: 15px;
+    padding: 10px;
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+.generation-status.generating {
+    background-color: #e6f7ff;
+    border: 1px solid #91d5ff;
+    color: #0050b3;
+}
+
+.generation-status.success {
+    background-color: #f6ffed;
+    border: 1px solid #b7eb8f;
+    color: #389e0d;
+}
+
+.generation-status.error {
+    background-color: #fff1f0;
+    border: 1px solid #ffa39e;
+    color: #cf1322;
+}
+
+.no-project-selected h2 {
+    /* ... existing code ... */
+}
+
+/* Danger Zone */
+.project-card.danger-zone {
+    /* ... existing code ... */
+}
+
+/* Invitation Popup Styles */
+.invitation-popup-backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.invitation-popup {
+    background: #2c2c2c;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    width: 90%;
+    max-width: 500px;
+    text-align: center;
+    color: #fff;
+    border: 1px solid #444;
+}
+
+.invitation-popup h3 {
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+.invitation-popup .link-input {
+    width: 100%;
+    padding: 0.5rem;
+    margin-top: 1rem;
+    margin-bottom: 1.5rem;
+    border-radius: 4px;
+    border: 1px solid #555;
+    background-color: #333;
+    color: #fff;
+    font-family: monospace;
+}
+
+.invitation-popup .popup-actions {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+.invitation-popup .popup-actions button {
+    padding: 0.6rem 1.2rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #007bff;
+    color: white;
+    font-weight: bold;
+}
+
+.invitation-popup .popup-actions button:last-child {
+    background-color: #6c757d;
+}
+
+.status-badge {
+    padding: 3px 8px;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: capitalize;
+    margin-left: 10px;
+}
+
+.status-badge.status-pending {
+    background-color: var(--color-warning-muted);
+    color: var(--color-warning);
+}
+
+.status-badge.status-active {
+    background-color: var(--color-success-muted);
+    color: var(--color-success);
+}
+
+.member-list-item .role-and-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+.project-card .form-group textarea.failed-content {
+    border-color: #ff4d4f;
+    background-color: #3e2424;
+}
+
+.brand-content-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 0.5rem;
+}
+
+.view-mode-toggle {
+    display: flex;
+    background-color: var(--color-bg-input);
+    border-radius: 6px;
+    padding: 4px;
+}
+
+.view-mode-toggle button {
+    background: none;
+    border: none;
+    color: var(--color-text-secondary);
+    padding: 0.25rem 0.75rem;
+    cursor: pointer;
+    border-radius: 4px;
+    font-size: 0.85rem;
+    font-weight: 500;
+}
+
+.view-mode-toggle button.active {
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-primary);
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.markdown-preview {
+    background-color: var(--color-bg-input);
+    border: 1px solid var(--color-border);
+    border-radius: 6px;
+    padding: 1rem;
+    min-height: 160px; /* Same as textarea */
+    color: var(--color-text-primary);
+    overflow-y: auto;
+}
+
+/* Styles for markdown content */
+.markdown-preview h1,
+.markdown-preview h2,
+.markdown-preview h3 {
+    margin-top: 1rem;
+    margin-bottom: 0.5rem;
+    border-bottom: 1px solid var(--color-border-light);
+    padding-bottom: 0.3rem;
+}
+
+.markdown-preview p {
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+.markdown-preview ul,
+.markdown-preview ol {
+    margin-left: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.markdown-preview code {
+    background-color: var(--color-bg-primary);
+    padding: 0.2rem 0.4rem;
+    border-radius: 4px;
+    font-size: 0.9em;
+}
+
+.markdown-preview pre {
+    background-color: var(--color-bg-primary);
+    padding: 1rem;
+    border-radius: 6px;
+    overflow-x: auto;
+} 
+
+.danger-zone .delete-btn:hover {
+    background-color: #c82333;
+} 

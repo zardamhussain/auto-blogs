@@ -1,0 +1,141 @@
+.onboarding-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(18, 18, 18, 0.7); /* Similar to var(--color-bg-primary) with transparency */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    backdrop-filter: blur(8px);
+}
+
+.onboarding-modal-content {
+    background: var(--color-bg-panel);
+    padding: 2.5rem;
+    border-radius: 16px;
+    width: 100%;
+    max-width: 480px;
+    box-shadow: 0 20px 25px -5px rgb(0 0 0 / 0.1), 0 8px 10px -6px rgb(0 0 0 / 0.1);
+    animation: fadeIn 0.3s ease-out;
+    border: 1px solid var(--color-border);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px) scale(0.98);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.onboarding-modal-header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.onboarding-modal-header h2 {
+    color: var(--color-text-primary);
+    font-size: 1.75rem;
+    font-weight: 600;
+    margin: 0 0 0.5rem;
+}
+
+.onboarding-modal-header p {
+    color: var(--color-text-secondary);
+    font-size: 1rem;
+    margin: 0;
+}
+
+.onboarding-modal-form .form-group {
+    margin-bottom: 1.5rem;
+}
+
+.onboarding-modal-form label {
+    display: block;
+    color: var(--color-text-secondary);
+    font-size: 0.875rem;
+    font-weight: 500;
+    margin-bottom: 0.5rem;
+}
+
+.onboarding-modal-form input {
+    width: 100%;
+    padding: 0.75rem 1rem;
+    border-radius: 8px;
+    border: 1px solid var(--color-border);
+    background-color: var(--color-bg-primary);
+    color: var(--color-text-primary);
+    font-size: 1rem;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.onboarding-modal-form input::placeholder {
+    color: var(--color-text-secondary);
+}
+
+.onboarding-modal-form input:focus {
+    outline: none;
+    border-color: var(--color-text-primary);
+    box-shadow: 0 0 0 3px rgba(234, 234, 234, 0.2);
+}
+
+.onboarding-modal-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 2.5rem;
+}
+
+.onboarding-modal-actions .skip-btn,
+.onboarding-modal-actions .create-btn {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.2s;
+}
+
+.onboarding-modal-actions .skip-btn {
+    background-color: transparent;
+    color: var(--color-text-secondary);
+}
+
+.onboarding-modal-actions .skip-btn:hover:not(:disabled) {
+    background-color: rgba(255, 255, 255, 0.05);
+    color: var(--color-text-primary);
+}
+
+.onboarding-modal-actions .create-btn {
+    background-color: var(--color-btn-primary);
+    color: var(--color-btn-text);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 150px; /* Ensure button doesn't shrink when loader is active */
+}
+
+.onboarding-modal-actions .create-btn:hover:not(:disabled) {
+    background-color: #e0e0e0;
+}
+
+.onboarding-modal-actions button:disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+.onboarding-modal-form .error-message {
+    color: #ef4444;
+    font-size: 0.875rem;
+    text-align: center;
+    margin-top: -1rem;
+    margin-bottom: 1rem;
+} 

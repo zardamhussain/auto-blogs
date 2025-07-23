@@ -1,0 +1,525 @@
+.cta-generator-page {
+    display: flex;
+    flex-direction: column;
+    height: 100vh; /* Ensure the page takes full viewport height */
+    background-color: var(--primary-background);
+    color: var(--primary-text);
+    position: relative; /* Added for loader positioning */
+}
+
+.cta-editor-wrapper {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    padding: 0;
+    gap: 0;
+    box-sizing: border-box;
+    background-color: var(--panel-background);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--subtle-borders);
+    overflow: hidden;
+    min-height: calc(100vh - 120px);
+    position: relative; /* Added for loader positioning */
+}
+
+.cta-page-header-custom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0.8rem 1.5rem; /* Consistent padding */
+    background-color: var(--panel-background); /* Same as main box for continuity */
+    border-bottom: 1px solid var(--subtle-borders); /* Separator from content below */
+    box-shadow: none;
+    border-radius: 0; /* No rounded corners, as it's inside the main box */
+}
+
+.cta-page-header-custom .breadcrumb {
+    display: flex;
+    align-items: center;
+    color: var(--secondary-text);
+}
+
+.cta-page-header-custom .breadcrumb-item {
+    font-size: 1.25rem;
+}
+
+.cta-page-header-custom .breadcrumb-item.active {
+    color: var(--accent-text);
+    font-weight: 600;
+}
+
+.cta-page-header-custom .breadcrumb-separator {
+    margin: 0 0.5rem;
+    color: var(--secondary-text);
+}
+
+.view-toggle {
+    display: flex;
+    gap: 0.5rem;
+    z-index: 10;
+    background-color: var(--panel-background);
+    border-radius: 8px;
+    padding: 0.4rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.toggle-btn {
+    padding: 0.5rem 1rem;
+    font-size: 0.9rem;
+    background-color: transparent;
+    color: var(--secondary-text);
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    font-weight: 500;
+    transition: all 0.2s ease-in-out;
+    display: flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+
+.toggle-btn:hover {
+    background-color: var(--subtle-borders);
+    color: var(--primary-text);
+}
+
+.toggle-btn.active {
+    background-color: var(--primary-accent);
+    color: var(--button-text);
+    box-shadow: 0 2px 5px rgba(79, 70, 229, 0.4); /* Accent shadow */
+}
+
+.main-content-box-preview {
+    display: flex;
+    flex-direction: row;
+    gap: 0;
+    flex-grow: 1;
+    background-color: transparent;
+    border-radius: 0;
+    box-shadow: none;
+    border: none;
+    min-height: 0;
+    height: 100%;
+    overflow: hidden;
+}
+
+.generated-cta-preview-child {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    box-sizing: border-box;
+    flex-grow: 1;
+}
+
+.chat-section-child {
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    box-sizing: border-box;
+    height: 100%; /* Ensure chat-section-child takes full height of its grid cell */
+    flex-grow: 0; /* Prevent it from growing horizontally */
+    flex-shrink: 0;
+    width: auto; /* Width is controlled by inline style */
+    max-width: none; /* Max-width is controlled by logic */
+}
+
+.resizer {
+    width: 3px;
+    background-color: var(--subtle-borders);
+    cursor: col-resize;
+    flex-shrink: 0;
+    transition: background-color 0.2s ease;
+}
+
+.resizer:hover {
+    background-color: var(--primary-accent);
+}
+
+.main-content-box-code-full-width {
+    flex: 1;
+    background-color: transparent; /* Main wrapper has the background */
+    border-radius: 0; /* No individual rounded corners */
+    padding: 1.5rem;
+    box-shadow: none; /* No individual shadow */
+    display: flex;
+    flex-direction: column;
+    min-height: 0;
+    box-sizing: border-box;
+    border: none; /* No individual border, main wrapper has it */
+    overflow: hidden;
+}
+
+.generated-cta-preview-child h2,
+.chat-section-child h2,
+.main-content-box-code-full-width h2 {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.25rem;
+    color: var(--accent-text);
+    margin-bottom: 1rem;
+}
+
+.code-display-panels {
+    display: grid;
+    grid-template-columns: 200px 1fr; /* File tree fixed width, code content takes rest */
+    gap: 1rem; /* Gap between file tree and code content */
+    flex-grow: 1;
+    min-height: 0;
+    box-sizing: border-box;
+    border: 1px solid var(--subtle-borders);
+    border-radius: 6px;
+    overflow: hidden; /* Important for containing children scrolls */
+}
+
+.code-file-navigation {
+    background-color: var(--primary-background);
+    padding: 1rem;
+    overflow-y: auto;
+    border-right: 1px solid var(--subtle-borders);
+}
+
+.code-content-display {
+    flex-grow: 1;
+    background-color: var(--primary-background);
+    padding: 1rem;
+    overflow: auto;
+}
+
+.code-block {
+    height: 100%;
+    width: 100%;
+    background-color: transparent;
+    color: var(--accent-text);
+    padding: 0;
+    border: none;
+    border-radius: 0;
+    overflow: visible;
+    font-family: 'monospace', monospace;
+    font-size: 0.95rem;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    line-height: 1.6;
+    box-sizing: border-box;
+}
+
+.chat-section h2,
+.generated-cta-preview-child h2,
+.generated-code-area-full-width h2 {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.25rem; /* Slightly larger heading */
+    color: var(--accent-text);
+    margin-bottom: 1rem; /* Adjusted margin */
+}
+
+.chat-section-child .chat-history {
+    flex-grow: 1; /* Allow chat history to grow and take available space */
+    overflow-y: auto; /* Enable scroll for chat history */
+    margin-bottom: 1.5rem; /* Increased margin for better spacing */
+    padding-right: 0.75rem;
+    box-sizing: border-box;
+    height: auto; /* Allow flexbox to determine height */
+    display: block; /* Ensure it is visible */
+    min-height: 100px; /* Ensure chat history has a minimum visible height */
+    background-color: transparent; /* Remove debugging background color */
+}
+
+.chat-section-child .chat-input-form {
+    display: flex;
+    flex-direction: column; /* Align children vertically */
+    gap: 0.75rem;
+    margin-top: auto; /* Push to the bottom */
+    box-sizing: border-box;
+    flex-shrink: 0; /* Prevent the form from shrinking */
+    height: auto; /* Allow form height to be determined by content */
+}
+
+.chat-input-form textarea {
+    flex-grow: 1; /* Allow textarea to take available space */
+    padding: 0.75rem 1rem;
+    border: 1px solid var(--subtle-borders);
+    border-radius: 8px;
+    background-color: var(--input-background);
+    color: var(--primary-text);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.95rem;
+    resize: vertical; /* Allow vertical resize only */
+    min-height: 40px; /* Minimum height for the textarea */
+    max-height: 120px; /* Maximum height for the textarea */
+    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    transition: all 0.2s ease-in-out;
+    overflow-y: auto; /* Enable vertical scroll when content exceeds max-height */
+}
+
+.chat-input-form textarea:focus {
+    outline: none;
+    border-color: var(--primary-accent);
+    box-shadow: 0 0 0 3px rgba(79, 70, 229, 0.2); /* Subtle glow on focus */
+}
+
+/* Ensure placeholder styles apply to textarea as well */
+.chat-input-form input::placeholder,
+.chat-input-form textarea::placeholder {
+    color: var(--secondary-text);
+}
+
+.chat-input-form button {
+    padding: 0.75rem 1.25rem;
+    background-color: var(--primary-accent);
+    color: var(--button-text);
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: background-color 0.2s ease;
+}
+
+.chat-input-form button:hover {
+    background-color: #3b30bd; /* Darker shade of primary accent */
+}
+
+.chat-input-form button:disabled {
+    background-color: var(--subtle-borders);
+    color: var(--secondary-text);
+    cursor: not-allowed;
+}
+
+.cta-preview-frame {
+    flex-grow: 1;
+    border: 1px solid var(--subtle-borders);
+    border-radius: 6px; /* Consistent border radius */
+    overflow: hidden;
+    background-color: #fff; /* White background for preview */
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1); /* Inner shadow for depth */
+}
+
+.cta-preview-frame iframe {
+    width: 100%;
+    height: 100%;
+    border: none; /* No border on iframe itself */
+    display: block;
+}
+
+/* List view for CTAs */
+.cta-list-container {
+    background-color: var(--panel-background);
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border: 1px solid var(--subtle-borders);
+    margin: 2rem;
+    display: flex;
+    flex-direction: column;
+}
+
+.page-actions {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+
+.main-heading {
+    font-family: 'Inter', sans-serif;
+    font-size: 2rem;
+    color: var(--accent-text);
+}
+
+.new-cta-btn-container {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.new-cta-btn {
+    padding: 0.75rem 1.5rem;
+    font-size: 1rem;
+    font-weight: 600;
+    color: #000000;
+    background-color: #ffffff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-family: 'Inter', sans-serif;
+    transition: background-color 0.2s ease-in-out;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.new-cta-btn:hover {
+    background-color: #f0f0f0;
+}
+
+.cta-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+    flex-grow: 1;
+}
+
+.cta-list p {
+    color: var(--secondary-text);
+    text-align: center;
+    padding: 2rem;
+    font-style: italic;
+}
+
+/* Basic structure for modals (assuming NewCtaModal.css will have details) */
+.new-cta-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.new-cta-modal-content {
+    background-color: var(--panel-background);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    width: 90%;
+    max-width: 500px;
+    color: var(--primary-text);
+}
+
+/* General design tokens */
+:root {
+    --primary-background: #121212;
+    --panel-background: #1E1E1E;
+    --primary-text: #EAEAEA;
+    --secondary-text: #a0a0a0;
+    --subtle-borders: #333333;
+    --accent-text: #FFFFFF;
+    --primary-button: #FFFFFF;
+    --button-text: #121212;
+    --primary-accent: #4f46e5;
+    --published-status: #22c55e;
+    --draft-status: #eab308;
+    --delete-action: #ef4444;
+    --dashboard-grey: #303030;
+}
+
+/* Basic body styles */
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: var(--primary-background);
+}
+
+/* Scrollbar styles for better aesthetics */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--primary-background);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--subtle-borders);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--secondary-text);
+}
+
+.cta-content {
+    padding: 0;
+    gap: 0;
+}
+
+/* Loader Styles */
+.loader-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(30, 30, 30, 0.8);
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    border-radius: 8px;
+}
+
+.loader {
+    border: 4px solid var(--subtle-borders);
+    border-top: 4px solid var(--primary-accent);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.chat-message {
+    padding: 0.75rem 1rem;
+    margin-bottom: 0.5rem; /* Space between messages */
+    border-radius: 8px;
+    background-color: var(--panel-background); /* Subtle background for messages */
+    border: 1px solid var(--subtle-borders);
+    font-size: 0.95rem;
+    line-height: 1.4;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+}
+
+.chat-message.user {
+    text-align: left; /* Align user messages to the left */
+    background-color: #2a2a2a; /* Slightly different background for user messages */
+    border-color: #444;
+    color: var(--primary-text); /* Ensure user message text is readable */
+}
+
+.chat-message.assistant {
+    text-align: left; /* Align assistant messages to the left */
+    background-color: var(--panel-background);
+    border-color: var(--subtle-borders);
+    color: var(--primary-text);
+}
+
+.header-controls-right {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+}
+
+.close-editor-btn {
+    background: transparent;
+    border: none;
+    color: var(--secondary-text);
+    cursor: pointer;
+    padding: 0.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 8px;
+    transition: all 0.2s ease-in-out;
+}
+
+.close-editor-btn:hover {
+    background-color: var(--subtle-borders);
+    color: var(--primary-text);
+} 

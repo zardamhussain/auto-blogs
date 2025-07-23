@@ -1,0 +1,357 @@
+html, body {
+    height: 100%;
+    margin: 0;
+    overflow: hidden; /* prevent outer page scroll */
+}
+
+.prompts-page {
+    height: 100vh; /* fill viewport */
+    overflow: hidden; /* prevent outer scroll */
+    display: flex;
+    flex-direction: column;
+    background-color: #121212;
+}
+
+
+.prompts-tabs {
+    display: flex;
+    padding: 0 1rem 0 0;
+    border-bottom: 1px solid #333333;
+}
+
+.tab-button {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    background-color: transparent;
+    color: #a0a0a0;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: color 0.2s, border-bottom 0.2s;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+}
+
+.tab-button.active {
+    color: #EAEAEA;
+    border-bottom: 2px solid #000000;
+}
+
+.tab-button:hover {
+    color: #EAEAEA;
+}
+
+.prompts-content {
+    flex-grow: 1;
+    overflow: hidden; /* Prevent this from scrolling */
+    height: 100%; /* Ensure it fills the prompts-page */
+}
+
+.view-guides-container {
+    padding: 2rem;
+    color: #EAEAEA;
+    height: 100%; /* Make it fill the container */
+    overflow-y: auto; /* Handle its own scrolling */
+    box-sizing: border-box; /* Include padding in height/width calculation */
+}
+
+.guides-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.prompts-page-container {
+    display: flex;
+    transition: margin-right 0.3s ease-in-out;
+}
+
+.prompts-main-content {
+    flex-grow: 1;
+    transition: width 0.3s ease-in-out;
+    width: 100%;
+    transition: filter 0.3s ease-in-out;
+}
+
+.prompts-main-content.blurred {
+    filter: blur(5px);
+    pointer-events: none;
+}
+
+.prompts-page-container.sidebar-open .prompts-main-content {
+    width: calc(100% - 450px);
+}
+
+.generation-page-container {
+    display: flex;
+    height: 100%;
+    overflow-y: hidden;
+    background-color: #121212;
+    color: #EAEAEA;
+    font-family: 'Inter', sans-serif;
+}
+
+/* When GenerationPanel is the only child inside its container */
+.generation-page-container > div:first-child:last-child {
+    margin: auto;
+    width: 700px;
+    height: auto;
+    max-height: 90vh; /* Don't take full screen height */
+    border-right: none;
+    border-radius: 12px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+}
+
+.editor-panel {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    padding: 1.5rem 2rem;
+    gap: 1rem;
+    animation: fadeInRight 0.5s ease-in-out;
+}
+
+@keyframes fadeInRight {
+    from {
+        opacity: 0;
+        transform: translateX(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.editor-toolbar {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.editor-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #EAEAEA;
+    margin: 0;
+}
+
+.editor-sections {
+    display: flex;
+    gap: 0.5rem;
+    border-bottom: 1px solid #333333;
+    padding-bottom: 0.5rem;
+}
+
+.section-button {
+    padding: 0.5rem 1rem;
+    border: none;
+    background-color: transparent;
+    color: #a0a0a0;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.2s;
+    border-radius: 4px;
+}
+
+.section-button.active {
+    background-color: #ffffff;
+    color: #000000;
+}
+
+.section-button:hover:not(.active) {
+    background-color: #333333;
+    color: #EAEAEA;
+}
+
+.style-guide-name-container {
+    margin-bottom: 1rem;
+}
+
+.style-guide-name-input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #333333;
+    border-radius: 4px;
+    background-color: #1a1a1a;
+    color: #EAEAEA;
+    font-size: 1rem;
+    transition: border-color 0.2s;
+}
+
+.style-guide-name-input:focus {
+    outline: none;
+    border-color: #000000;
+}
+
+.editor-content {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+}
+
+.style-guide-content {
+    padding: 1rem;
+    border: 1px solid #333333;
+    border-radius: 4px;
+    background-color: #1a1a1a;
+    color: #EAEAEA;
+    font-size: 1rem;
+    line-height: 1.5;
+    resize: none;
+    height: 100%;
+}
+
+.style-guide-content:focus {
+    outline: none;
+    border-color: #000000;
+}
+
+.error-message {
+    color: #ef4444;
+    margin: 0.5rem 0;
+}
+
+.success-message {
+    color: #22c55e;
+    margin: 0.5rem 0;
+}
+
+.editor-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-top: 1rem;
+}
+
+.save-btn {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 4px;
+    background-color: #ffffff;
+    color: #000000;
+    font-size: 1rem;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.save-btn:hover:not(:disabled) {
+    background-color: #e0e0e0;
+}
+
+.save-btn:disabled {
+    background-color: #333333;
+    cursor: not-allowed;
+}
+
+/* === BRAND CONTEXT STYLES START === */
+.brand-context-bar {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem;
+    border-radius: 6px;
+    margin-bottom: 1.5rem;
+}
+.brand-context-bar.cta {
+    background-color: #262626;
+    border: 1px solid #78716c;
+}
+.cta-icon {
+    color: #f59e0b;
+    flex-shrink: 0;
+}
+.brand-context-bar.cta div p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #d6d3d1;
+}
+.brand-context-bar.cta div p:first-child {
+    font-weight: 600;
+    color: #f5f5f4;
+}
+.cta-button {
+    margin-left: auto;
+    background-color: #f5f5f4;
+    color: #1c1917;
+    border: none;
+    padding: 0.5rem 1rem;
+    border-radius: 4px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+.cta-button:hover {
+    background-color: #e7e5e4;
+}
+.brand-context-bar.processing {
+    background-color: #1e293b;
+    border: 1px solid #334155;
+    color: #cbd5e1;
+}
+.brand-context-bar.processing p {
+    margin: 0;
+    font-size: 0.9rem;
+}
+.brand-context-bar.processing p strong {
+    color: #f1f5f9;
+}
+
+.spinner {
+    width: 20px;
+    height: 20px;
+    border: 3px solid #334155;
+    border-top-color: #64748b;
+    border-radius: 50%;
+    animation: brand-spin 1s linear infinite;
+    flex-shrink: 0;
+}
+@keyframes brand-spin {
+    to { transform: rotate(360deg); }
+}
+.brand-context-bar.completed {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    margin-bottom: 1rem; /* Add some space below the toggle */
+}
+.brand-context-bar.completed label {
+    font-weight: 500;
+    color: #e5e7eb;
+    cursor: pointer;
+}
+.brand-context-bar.completed input[type="checkbox"] {
+    width: 16px;
+    height: 16px;
+    margin-right: 0.5rem;
+    cursor: pointer;
+}
+.tooltip-container {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    color: #9ca3af;
+}
+.tooltip-container .tooltip-text {
+    visibility: hidden;
+    width: 250px;
+    background-color: #374151;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 8px;
+    position: absolute;
+    z-index: 1;
+    bottom: 150%;
+    left: 50%;
+    margin-left: -125px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 0.85rem;
+}
+.tooltip-container:hover .tooltip-text {
+    visibility: visible;
+    opacity: 1;
+}
+/* === BRAND CONTEXT STYLES END === */ 

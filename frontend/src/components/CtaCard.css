@@ -1,0 +1,86 @@
+.cta-card {
+    background: var(--dashboard-grey);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: 1.5rem;
+    display: flex;
+    flex-direction: column;
+    height: auto; /* Allow content to define height */
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    position: relative;
+    overflow: hidden;
+}
+
+.cta-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    border-color: rgba(255, 255, 255, 0.2);
+}
+
+.cta-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1.5rem; /* Add space between header and meta */
+}
+
+.cta-card-title {
+    font-size: 1.1rem; /* Adjusted for potentially longer prompt text */
+    font-weight: 500;
+    color: #fff;
+    margin: 0;
+    line-height: 1.5;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    line-clamp: 4;
+    -webkit-line-clamp: 4; /* Allow up to 4 lines for the title */
+    -webkit-box-orient: vertical;
+}
+
+.cta-card-status {
+    font-size: 0.8rem;
+    font-weight: 600;
+    padding: 0.25rem 0.6rem;
+    border-radius: 6px;
+    text-transform: uppercase;
+    white-space: nowrap;
+    background: rgba(34, 197, 94, 0.1); /* Default to a 'generated' look */
+    color: #22c55e;
+}
+
+.cta-card-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 0.9rem;
+    color: #a0a0a0;
+    margin-top: auto; /* Pushes meta to the bottom */
+}
+
+.cta-card-action-btn {
+    background: none;
+    border: none;
+    color: #a0a0a0;
+    padding: 0.25rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+    transition: color 0.2s, background 0.2s;
+}
+
+.cta-card-action-btn:hover {
+    color: #fff;
+}
+
+.cta-card-action-btn.delete {
+    color: var(--delete-action);
+}
+
+.cta-card-action-btn.delete:hover {
+    background: rgba(239, 68, 68, 0.1);
+} 

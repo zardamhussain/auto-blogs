@@ -1,0 +1,96 @@
+version: "3.8"
+
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: backend/Dockerfile
+    ports:
+      - "8020:8000"
+    volumes:
+      - ./backend:/app/backend
+      - ./requirements.txt:/app/requirements.txt
+    env_file:
+      - .env
+    container_name: auto_blogs_backend
+    environment:
+      - GITHUB_OWNER=${GITHUB_OWNER}
+      - GITHUB_REPO=${GITHUB_REPO}
+      - GITHUB_BRANCH=${GITHUB_BRANCH}
+      - REDDIT_CLIENT_ID=${REDDIT_CLIENT_ID}
+      - REDDIT_CLIENT_SECRET=${REDDIT_CLIENT_SECRET}
+      - REDDIT_USER_AGENT=${REDDIT_USER_AGENT}
+      - REDDIT_USERNAME=${REDDIT_USERNAME}
+      - REDDIT_PASSWORD=${REDDIT_PASSWORD}
+      - REDDIT_CLIENT_ID_1=${REDDIT_CLIENT_ID_1}
+      - REDDIT_CLIENT_SECRET_1=${REDDIT_CLIENT_SECRET_1}
+      - REDDIT_USER_AGENT_1=${REDDIT_USER_AGENT_1}
+      - REDDIT_USERNAME_1=${REDDIT_USERNAME_1}
+      - REDDIT_PASSWORD_1=${REDDIT_PASSWORD_1}
+      - REDDIT_CLIENT_ID_2=${REDDIT_CLIENT_ID_2}
+      - REDDIT_CLIENT_SECRET_2=${REDDIT_CLIENT_SECRET_2}
+      - REDDIT_USER_AGENT_2=${REDDIT_USER_AGENT_2}
+      - REDDIT_USERNAME_2=${REDDIT_USERNAME_2}
+      - REDDIT_PASSWORD_2=${REDDIT_PASSWORD_2}
+      - GEMINI_API_KEY=${GEMINI_API_KEY}
+      - GEMINI_API_KEY_1=${GEMINI_API_KEY_1}
+      - SERPER_API_KEY=${SERPER_API_KEY}
+      - OPENAI_API_KEY=${OPENAI_API_KEY}
+      - FIRECRAWL_API_KEY=${FIRECRAWL_API_KEY}
+      - TAVILY_API_KEY=${TAVILY_API_KEY}
+      - SUPABASE_URL=${SUPABASE_URL}
+      - SUPABASE_KEY=${SUPABASE_KEY}
+      - client_id=${client_id}
+      - client_secret=${client_secret}
+      - redirect_url=${redirect_url}
+      - cookie_secret_key=${cookie_secret_key}
+      - SANITY_PROJECT_ID=${SANITY_PROJECT_ID}
+      - SANITY_DATASET=${SANITY_DATASET}
+      - SANITY_API_VERSION=${SANITY_API_VERSION}
+      - SANITY_AUTH_TOKEN=${SANITY_AUTH_TOKEN}
+      - SANITY_PROJECT_ID=${SANITY_PROJECT_ID}
+      - SANITY_DATASET=${SANITY_DATASET}
+      - SANITY_API_VERSION=${SANITY_API_VERSION}
+
+  frontend:
+    command: sh -c "npm install && npm run dev -- --host --port 8501"
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+    ports:
+      - "3100:8501"
+    volumes:
+      - ./frontend:/app
+    depends_on:
+      - backend
+    container_name: auto_blogs_frontend
+
+  blog_site:
+    build:
+      context: ./blog-site
+      dockerfile: Dockerfile
+    ports:
+      - "6969:6969"
+    volumes:
+      - ./blog-site:/app
+
+
+  # blog_site:
+  #   build:
+  #     context: ./blog-site
+  #     dockerfile: Dockerfile
+  #   ports:
+  #     - "3000:3000"
+  #   environment:
+  #     - SANITY_PROJECT_ID=${SANITY_PROJECT_ID}
+  #     - SANITY_DATASET=${SANITY_DATASET}
+  #     - SANITY_API_VERSION=${SANITY_API_VERSION}
+  #     - SANITY_READ_TOKEN=${SANITY_READ_TOKEN}
+  #     - NEXT_PUBLIC_SITE_URL=${NEXT_PUBLIC_SITE_URL}
+    # depends_on:
+    #   - studio
+
+networks:
+  default:
+    name: auto_blogs_network
+

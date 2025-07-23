@@ -1,0 +1,12 @@
+<p class="text-2xl font-bold mt-2">Get your Free Skin Analysis here</p>
+<a href="https://www.cosmi.skin" style="text-decoration: none;" onclick="handleGABlogsSkinAnalysis()">
+  <img class="aspect-video rounded" src="/images/cosmi.jpeg" alt="Skin Analysis">
+</a>
+
+<script>
+  const blogLocation = window.location.pathname;
+
+  function handleGABlogsSkinAnalysis(){
+    triggerGAEvent('comsi-blogs-skin-analysis-section', 'Click_banner_blogs_inside', blogLocation);
+  }
+</script>

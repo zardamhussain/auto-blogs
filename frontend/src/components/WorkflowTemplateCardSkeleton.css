@@ -1,0 +1,22 @@
+.template-card-skeleton {
+    background-color: #1E1E1E;
+    border-radius: 8px;
+    border: 1px solid #333333;
+    overflow: hidden;
+}
+
+.template-card-preview-skeleton {
+    height: 180px;
+    border-radius: 0; /* The container handles rounding */
+}
+
+.template-card-title-skeleton {
+    padding: 1rem;
+    border-top: 1px solid #333333;
+}
+
+.template-card-text-skeleton {
+    height: 20px;
+    width: 60%;
+    margin: 0 auto; /* Center the skeleton text line */
+} 
