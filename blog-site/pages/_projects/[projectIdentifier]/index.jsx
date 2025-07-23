@@ -22,7 +22,7 @@ const ProjectHomePage = ({ project, posts, debugMode, languages }) => {
     if (typeof window !== 'undefined') {
       const hostname = window.location.hostname;
       setIsRootDomain(
-        hostname === 'outblogai.com' || hostname === 'www.outblogai.com'
+        hostname.endsWith('.outblogai.com')
       );
     }
   }, []);
