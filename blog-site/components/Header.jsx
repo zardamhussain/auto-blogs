@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { useTheme } from '@/context/ThemeContext';
+import { useTheme } from '../context/ThemeContext';
 import { SunIcon, MoonIcon } from '@heroicons/react/24/solid';
 import { GlobeAltIcon } from '@heroicons/react/24/outline';
 

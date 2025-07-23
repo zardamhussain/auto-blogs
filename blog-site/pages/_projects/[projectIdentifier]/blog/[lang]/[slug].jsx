@@ -2,8 +2,8 @@ import { useRouter } from 'next/router';
 import Head from 'next/head';
 import { MDXRemote } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
-import Layout from '@/components/Layout';
-import ClientDate from '@/components/ClientDate';
+import Layout from '../../../../../components/Layout';
+import ClientDate from '../../../../../components/ClientDate';
 import { useCallback } from 'react';
 
 const BlogPostPage = ({ mdxSource, frontmatter, project, lang, languages = ['en'] }) => {

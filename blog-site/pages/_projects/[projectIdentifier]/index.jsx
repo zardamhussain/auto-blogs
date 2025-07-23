@@ -1,11 +1,11 @@
 import { useRouter } from 'next/router';
 import Head from 'next/head';
 import Link from 'next/link';
-import Layout from '@/components/Layout';
+import Layout from '../../../components/Layout';
 import { useState, useEffect } from 'react';
-import { useTheme } from '@/context/ThemeContext';
+import { useTheme } from '../../../context/ThemeContext';
 import ClientDate from '../../../components/ClientDate';
-import Loader from '@/components/Loader';
+import Loader from '../../../components/Loader';
 
 const ProjectHomePage = ({ project, posts, debugMode, languages }) => {
   const router = useRouter();
