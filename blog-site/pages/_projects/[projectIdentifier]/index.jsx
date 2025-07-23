@@ -16,6 +16,16 @@ const ProjectHomePage = ({ project, posts, debugMode, languages }) => {
   );
   const postsPerPage = 9;
   const [isLoading, setIsLoading] = useState(false);
+  const [isRootDomain, setIsRootDomain] = useState(false);
+
+  useEffect(() => {
+    if (typeof window !== 'undefined') {
+      const hostname = window.location.hostname;
+      setIsRootDomain(
+        hostname === 'outblogai.com' || hostname === 'www.outblogai.com'
+      );
+    }
+  }, []);
 
   useEffect(() => {
     const handleStart = () => setIsLoading(true);
@@ -253,7 +263,13 @@ const ProjectHomePage = ({ project, posts, debugMode, languages }) => {
 
                     return (
                       <article key={post.id} className="group">
-                        <Link href={`/_projects/${project.id}/blog/${selectedLanguage}/${post.slug}`}>
+                        <Link
+                          href={
+                            isRootDomain
+                              ? `/blog/${selectedLanguage}/${post.slug}`
+                              : `/_projects/${project.id}/blog/${selectedLanguage}/${post.slug}`
+                          }
+                        >
                           <div className={`relative rounded-xl border overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 group-hover:scale-[1.02] ${
                             theme === 'dark' 
                               ? 'bg-black border-gray-800 hover:border-gray-700' 
@@ -269,7 +285,6 @@ const ProjectHomePage = ({ project, posts, debugMode, languages }) => {
                                 />
                               </div>
                             )}
-                            
                             {/* Content */}
                             <div className="p-6">
                               <h2 className={`text-xl font-semibold mb-3 transition-colors duration-200 line-clamp-2 ${
@@ -279,7 +294,6 @@ const ProjectHomePage = ({ project, posts, debugMode, languages }) => {
                               }`}>
                                 {title}
                               </h2>
-                              
                               {/* Tags */}
                               {tags.length > 0 && (
                                 <div className="flex flex-wrap gap-1 mb-3">
@@ -303,7 +317,6 @@ const ProjectHomePage = ({ project, posts, debugMode, languages }) => {
                                   )}
                                 </div>
                               )}
-                              
                               {description && (
                                 <p className={`mb-4 line-clamp-3 leading-relaxed ${
                                   theme === 'dark' ? 'text-gray-300' : 'text-gray-600'
@@ -311,7 +324,6 @@ const ProjectHomePage = ({ project, posts, debugMode, languages }) => {
                                   {description}
                                 </p>
                               )}
-                              
                               {/* Meta */}
                               <div className="flex items-center justify-between text-sm">
                                 <time dateTime={date} className={`px-2 py-1 rounded ${
