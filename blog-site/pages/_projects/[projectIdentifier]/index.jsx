@@ -253,7 +253,7 @@ const ProjectHomePage = ({ project, posts, debugMode, languages }) => {
 
                     return (
                       <article key={post.id} className="group">
-                        <Link href={`/blog/${selectedLanguage}/${post.slug}`}>
+                        <Link href={`/_projects/${project.id}/blog/${selectedLanguage}/${post.slug}`}>
                           <div className={`relative rounded-xl border overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 group-hover:scale-[1.02] ${
                             theme === 'dark' 
                               ? 'bg-black border-gray-800 hover:border-gray-700' 
