@@ -52,6 +52,8 @@ export function middleware(req) {
   } else if (subdomain !== '' && hostname !== `www.${rootDomain}`) {
     // Strategy 2: Subdomain-based routing.
     // Rewrite any request on a subdomain to the internal project structure.
+    console.log('subdomain', subdomain);
+    console.log('pathname', pathname);
     url.pathname = `/_projects/${subdomain}${pathname}`;
     return NextResponse.rewrite(url);
   }
